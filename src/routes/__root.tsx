@@ -10,6 +10,8 @@ import {
 
 import appCss from "../styles.css?url";
 import { ConsentBanner } from "@/components/frontera/ConsentBanner";
+import { EnquirySlideIn } from "@/components/frontera/EnquirySlideIn";
+import { Analytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -99,16 +101,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:description",
         content: "AI-driven research, strategy and creative for pharma teams.",
       },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9afd3200-5494-4937-8b21-c69c25413da0/id-preview-55efbc52--d31ec655-8cb0-4fa4-a0fe-a36e7881f955.lovable.app-1778747946998.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9afd3200-5494-4937-8b21-c69c25413da0/id-preview-55efbc52--d31ec655-8cb0-4fa4-a0fe-a36e7881f955.lovable.app-1778747946998.png",
-      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -150,7 +142,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent,
+  errorComponent: (props) => <ErrorComponent error={props.error as Error} reset={props.reset} />,
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
@@ -174,6 +166,8 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <ConsentBanner />
+      <EnquirySlideIn />
+      <Analytics />
     </QueryClientProvider>
   );
 }

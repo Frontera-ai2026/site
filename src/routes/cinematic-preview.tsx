@@ -3,6 +3,14 @@ import { useState } from 'react';
 import { Search, User, Menu, X, Star, Clock, Calendar, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Route = createFileRoute('/cinematic-preview')({
+  head: () => ({ meta: [
+    { title: 'Cinematic Preview — Frontera Global' },
+    { name: 'description', content: 'A cinematic visual study for Frontera Global.' },
+    { property: 'og:title', content: 'Cinematic Preview — Frontera Global' },
+    { property: 'og:description', content: 'A cinematic visual study for Frontera Global.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ] }),
   component: CinematicPreview,
 });
 

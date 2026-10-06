@@ -18,6 +18,7 @@ export const Route = createFileRoute("/privacy-policy")({
           "How Frontera Global collects, uses and protects personal data, and your rights under the UK GDPR and EU GDPR.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/privacy-policy" }],
   }),
