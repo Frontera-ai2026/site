@@ -59,7 +59,14 @@ const THEME_CSS = `
 
 export const Route = createFileRoute("/theme-preview")({
   head: () => ({
-    meta: [{ title: "Theme Preview — Frontera" }],
+    meta: [
+      { title: "Theme Preview — Frontera Global" },
+      { name: "description", content: "Explore a visual theme study for Frontera Global." },
+      { property: "og:title", content: "Theme Preview — Frontera Global" },
+      { property: "og:description", content: "Explore a visual theme study for Frontera Global." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
   }),
   component: ThemePreview,
 });

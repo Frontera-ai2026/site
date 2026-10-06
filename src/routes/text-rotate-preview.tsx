@@ -4,6 +4,14 @@ import { useRef } from "react";
 import type { TextRotateRef } from "@/components/ui/text-rotate";
 
 export const Route = createFileRoute("/text-rotate-preview")({
+  head: () => ({ meta: [
+    { title: "Text Motion Preview — Frontera Global" },
+    { name: "description", content: "Preview motion treatments for Frontera Global messaging." },
+    { property: "og:title", content: "Text Motion Preview — Frontera Global" },
+    { property: "og:description", content: "Preview motion treatments for Frontera Global messaging." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   component: TextRotatePreview,
 });
 

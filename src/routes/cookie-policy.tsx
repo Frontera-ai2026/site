@@ -19,6 +19,7 @@ export const Route = createFileRoute("/cookie-policy")({
           "Which cookies and similar technologies frontera-group.com uses, why, and how you can control them.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/cookie-policy" }],
   }),

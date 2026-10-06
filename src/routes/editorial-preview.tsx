@@ -1,6 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/editorial-preview')({
+  head: () => ({ meta: [
+    { title: 'Editorial Preview — Frontera Global' },
+    { name: 'description', content: 'An editorial design study for Frontera Global healthcare strategy.' },
+    { property: 'og:title', content: 'Editorial Preview — Frontera Global' },
+    { property: 'og:description', content: 'An editorial design study for Frontera Global healthcare strategy.' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+  ] }),
   component: EditorialPreview,
 });
 

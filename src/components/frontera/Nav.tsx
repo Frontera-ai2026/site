@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { FLogo } from "./FLogo";
+import { openEnquiryForm } from "@/lib/enquiry";
 
 export const bookingUrl =
   "https://outlook.office.com/book/FronteraIntroCall2@frontera-group.com/?ismsaljsauthenabled";
 
 const hashLinks = [
-  { id: "about", label: "About" },
-  { id: "expertise", label: "Offer" },
-  { id: "method", label: "Method" },
-  { id: "work", label: "Proof" },
-  { id: "deliverables", label: "Capabilities" },
+  { id: "expertise", label: "Capabilities" },
+  { id: "method", label: "Approach" },
+  { id: "work", label: "Cases" },
 ];
 
 export function Nav() {
   const [active, setActive] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const onHome = pathname === "/";
 
@@ -53,7 +55,7 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b bg-background/90 backdrop-blur-xl transition-shadow ${
+      className={`fixed inset-x-0 top-0 z-50 border-b bg-background/95 backdrop-blur-xl transition-shadow ${
         scrolled ? "shadow-[0_12px_40px_rgba(18,23,27,0.08)]" : ""
       }`}
     >
@@ -65,12 +67,12 @@ export function Nav() {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-7 text-[13px] lg:flex">
+        <ul className="hidden items-center gap-5 text-base font-semibold lg:flex xl:gap-9">
           {hashLinks.map((l) => (
             <li key={l.label}>
               <a
                 href={onHome ? `#${l.id}` : `/#${l.id}`}
-                className={`transition-colors hover:text-accent ${
+                 className={`transition-colors hover:text-accent ${
                   active === l.id ? "text-foreground" : "text-foreground/58"
                 }`}
               >
@@ -80,24 +82,32 @@ export function Nav() {
           ))}
           <li>
             <Link
-              to="/reference-article"
-              className="text-foreground/45 transition-colors hover:text-accent"
+               to="/credentials"
+               className="text-foreground/58 transition-colors hover:text-accent"
               activeProps={{ className: "text-foreground transition-colors hover:text-accent" }}
             >
-              Article
+               Credentials
             </Link>
           </li>
         </ul>
 
-        <a
-          href={bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex min-h-10 items-center justify-center border border-foreground bg-foreground px-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:border-accent hover:bg-accent md:px-5"
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
+        <Button
+          type="button"
+          onClick={openEnquiryForm}
+          className="min-h-10 rounded-none border border-foreground bg-foreground px-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-background hover:border-accent hover:bg-accent sm:px-4 sm:text-[11px]"
         >
-          Book intro
-        </a>
+          Speak to our team
+        </Button>
+        <Button type="button" variant="ghost" size="icon" className="lg:hidden" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
+          {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </Button>
+        </div>
       </nav>
+      {menuOpen && <nav aria-label="Mobile navigation" className="border-t border-border bg-background px-5 py-3 lg:hidden">
+        {hashLinks.map((link) => <a key={link.id} href={onHome ? `#${link.id}` : `/#${link.id}`} onClick={() => setMenuOpen(false)} className="block border-b border-border py-3 font-semibold text-foreground hover:text-accent">{link.label}</a>)}
+        <Link to="/credentials" onClick={() => setMenuOpen(false)} className="block py-3 font-semibold text-foreground hover:text-accent">Credentials</Link>
+      </nav>}
     </header>
   );
 }

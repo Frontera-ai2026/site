@@ -1,5 +1,6 @@
 import { FLogo } from "./FLogo";
 import { openPrivacyChoices } from "@/lib/consent";
+import { openEnquiryForm } from "@/lib/enquiry";
 
 export function DarkBar() {
   return (
@@ -37,6 +38,16 @@ export function DarkBar() {
           >
             frontera.global
           </a>
+          <p className="mt-5 text-sm leading-6 text-white/54">
+            Have a challenge in mind, or simply exploring?
+          </p>
+          <button
+            type="button"
+            onClick={openEnquiryForm}
+            className="mt-3 inline-flex min-h-11 items-center justify-center bg-accent px-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-foreground"
+          >
+            Speak to our team
+          </button>
         </div>
 
         <div className="text-left text-xs leading-6 text-white/42 md:max-w-xs md:text-right">
