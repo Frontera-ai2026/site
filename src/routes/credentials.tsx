@@ -47,7 +47,7 @@ function Credentials() {
               Research, strategy and creative engagement informed by behavioural science.<br className="hidden md:block" /> Explore how we find what holds better care back — then make it move.
             </p>
             <div className="mt-6 grid gap-3 lg:grid-cols-[30%_minmax(0,1fr)] lg:gap-3" aria-label="View credentials">
-              <a href={credentialsPdf.url} target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url("${generalBackground}")` }} className="credentials-image-bg group flex min-h-[340px] flex-col justify-between border border-accent bg-case-dark p-6 transition-colors hover:border-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:min-h-[415px] lg:p-7">
+              <Link to="/credentials/general" style={{ backgroundImage: `url("${generalBackground}")` }} className="credentials-image-bg group flex min-h-[340px] flex-col justify-between border border-accent bg-case-dark p-6 transition-colors hover:border-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:min-h-[415px] lg:p-7">
                 <span className="flex items-center justify-between gap-4">
                   <span className="flex items-center gap-4 text-sm font-medium text-primary-foreground/85">01 <span className="h-px w-9 bg-primary-foreground/40" aria-hidden="true" /></span>
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-primary-foreground/40 transition-colors group-hover:border-accent group-hover:text-accent"><ArrowRight className="size-5" aria-hidden="true" /></span>
@@ -57,7 +57,7 @@ function Credentials() {
                   <span className="mt-4 block text-sm leading-6 text-primary-foreground/80">Our end-to-end expertise across therapeutic areas, from insight and strategy to creative and engagement.</span>
                   <span className="mt-5 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-accent">View credentials <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
                 </span>
-              </a>
+              </Link>
               <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-6 lg:grid-rows-2" >
                 {areaCards.map((card, index) => (
                   <Link key={card.slug} to="/credentials/$area" params={{ area: card.slug }} style={{ backgroundImage: `url("${card.background}")` }} className={`credentials-image-bg group flex min-h-[230px] min-w-0 flex-col justify-between border border-primary-foreground/30 bg-case-dark p-5 transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:min-h-0 lg:p-5 ${index < 2 ? "lg:col-span-3" : "lg:col-span-2"}`}>

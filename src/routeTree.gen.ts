@@ -23,6 +23,7 @@ import { Route as ThemePreviewRouteImport } from './routes/theme-preview'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as CredentialsAreaRouteImport } from './routes/credentials_.$area'
+import { Route as CredentialsGeneralRouteImport } from './routes/credentials_.general'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -98,6 +99,11 @@ const CredentialsAreaRoute = CredentialsAreaRouteImport.update({
   path: '/credentials/$area',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CredentialsGeneralRoute = CredentialsGeneralRouteImport.update({
+  id: '/credentials_/general',
+  path: '/credentials/general',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
     id: '/.mcp/invoke-tool/$tool',
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/credentials/$area': typeof CredentialsAreaRoute
+  '/credentials/general': typeof CredentialsGeneralRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -144,6 +151,7 @@ export interface FileRoutesByTo {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/credentials/$area': typeof CredentialsAreaRoute
+  '/credentials/general': typeof CredentialsGeneralRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -163,6 +171,7 @@ export interface FileRoutesById {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/credentials_/$area': typeof CredentialsAreaRoute
+  '/credentials_/general': typeof CredentialsGeneralRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/credentials/$area'
+    | '/credentials/general'
     | '/.mcp/invoke-tool/$tool'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -201,6 +211,7 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/credentials/$area'
+    | '/credentials/general'
     | '/.mcp/invoke-tool/$tool'
     | '/lovable/email/transactional/preview'
   id:
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/credentials_/$area'
+    | '/credentials_/general'
     | '/.mcp/invoke-tool/$tool'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   CredentialsAreaRoute: typeof CredentialsAreaRoute
+  CredentialsGeneralRoute: typeof CredentialsGeneralRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
@@ -342,6 +355,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CredentialsAreaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/credentials_/general': {
+      id: '/credentials_/general'
+      path: '/credentials/general'
+      fullPath: '/credentials/general'
+      preLoaderRoute: typeof CredentialsGeneralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.mcp/invoke-tool/$tool': {
       id: '/.mcp/invoke-tool/$tool'
       path: '/.mcp/invoke-tool/$tool'
@@ -375,6 +395,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
   CredentialsAreaRoute: CredentialsAreaRoute,
+  CredentialsGeneralRoute: CredentialsGeneralRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
