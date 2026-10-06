@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# build output / npm lockfile (project uses bun.lock)
+.vercel
+package-lock.json

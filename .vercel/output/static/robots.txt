@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://frontera-creds.lovable.app/sitemap.xml
