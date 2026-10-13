@@ -9,11 +9,11 @@ import diagnosticsImage from "@/assets/frontera/diagnostics-credentials.jpeg.ass
 import aestheticsImage from "@/assets/frontera/aesthetics-credentials.jpeg.asset.json";
 
 export const therapyAreas = [
-  { name: "Cardiovascular", slug: "cardiovascular", number: "01", image: cardiovascularImage.url },
-  { name: "CKD", slug: "ckd", number: "02", image: ckdImage.url },
-  { name: "Obesity & MASH", slug: "obesity-mash", number: "03", image: obesityMashImage.url },
-  { name: "Diagnostics", slug: "diagnostics", number: "04", image: diagnosticsImage.url },
-  { name: "Aesthetics", slug: "aesthetics", number: "05", image: aestheticsImage.url },
+  { name: "Cardiovascular", slug: "cardiovascular", number: "01", image: cardiovascularImage.url, pdf: "/credentials-pdf/Frontera_Cardiovascular.pdf", width: 906, height: 1280 },
+  { name: "CKD", slug: "ckd", number: "02", image: ckdImage.url, pdf: "/credentials-pdf/Frontera_CKD.pdf", width: 906, height: 1280 },
+  { name: "Obesity & MASH", slug: "obesity-mash", number: "03", image: obesityMashImage.url, pdf: null, width: 746, height: 1054 },
+  { name: "Diagnostics", slug: "diagnostics", number: "04", image: diagnosticsImage.url, pdf: "/credentials-pdf/Frontera_Diagnostics.pdf", width: 1280, height: 721 },
+  { name: "Aesthetics", slug: "aesthetics", number: "05", image: aestheticsImage.url, pdf: "/credentials-pdf/Frontera_Aesthetics.pdf", width: 906, height: 1280 },
 ] as const;
 
 export type TherapyArea = (typeof therapyAreas)[number];
@@ -36,12 +36,12 @@ export function TherapyCredentials({ area }: { area: TherapyArea }) {
         <section className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16 xl:px-0">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
             <p className="text-sm text-muted-foreground">{area.name} credentials</p>
-            <a href={area.image} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-accent">
+            <a href={area.pdf ?? area.image} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-accent">
               Open full size <ArrowUpRight className="size-4" aria-hidden="true" />
             </a>
           </div>
-          <a href={area.image} target="_blank" rel="noopener noreferrer" aria-label={`Open ${area.name} credentials full size`} className="mx-auto mt-8 block max-w-[746px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
-            <img src={area.image} alt={`Frontera Global ${area.name} credentials: Decode, Design and Deploy experience`} width="746" height="1054" className="block h-auto w-full" />
+          <a href={area.pdf ?? area.image} target="_blank" rel="noopener noreferrer" style={{ maxWidth: area.width }} aria-label={`Open ${area.name} credentials full size`} className="mx-auto mt-8 block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+            <img src={area.image} alt={`Frontera Global ${area.name} credentials: Decode, Design and Deploy experience`} width={area.width} height={area.height} className="block h-auto w-full" />
           </a>
         </section>
         <DarkBar />
