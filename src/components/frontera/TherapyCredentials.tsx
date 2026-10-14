@@ -36,11 +36,11 @@ export function TherapyCredentials({ area }: { area: TherapyArea }) {
         <section className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16 xl:px-0">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
             <p className="text-sm text-muted-foreground">{area.name} credentials</p>
-            <a href={area.pdf ?? area.image} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-accent">
+            <a href={area.pdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-accent">
               Open full size <ArrowUpRight className="size-4" aria-hidden="true" />
             </a>
           </div>
-          <a href={area.pdf ?? area.image} target="_blank" rel="noopener noreferrer" style={{ maxWidth: area.width }} aria-label={`Open ${area.name} credentials full size`} className="mx-auto mt-8 block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+          <a href={area.pdf} target="_blank" rel="noopener noreferrer" style={{ maxWidth: area.width }} aria-label={`Open ${area.name} credentials full size`} className="mx-auto mt-8 block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
             <img src={area.image} alt={`Frontera Global ${area.name} credentials: Decode, Design and Deploy experience`} width={area.width} height={area.height} className="block h-auto w-full" />
           </a>
         </section>
