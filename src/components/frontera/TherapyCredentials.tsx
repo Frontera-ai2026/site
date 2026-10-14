@@ -11,7 +11,7 @@ import aestheticsImage from "@/assets/frontera/aesthetics-credentials.jpeg.asset
 export const therapyAreas = [
   { name: "Cardiovascular", slug: "cardiovascular", number: "01", image: cardiovascularImage.url, pdf: "/credentials-pdf/Frontera_Cardiovascular.pdf", width: 906, height: 1280 },
   { name: "CKD", slug: "ckd", number: "02", image: ckdImage.url, pdf: "/credentials-pdf/Frontera_CKD.pdf", width: 906, height: 1280 },
-  { name: "Obesity & MASH", slug: "obesity-mash", number: "03", image: obesityMashImage.url, pdf: null, width: 746, height: 1054 },
+  { name: "Obesity & MASH", slug: "obesity-mash", number: "03", image: obesityMashImage.url, pdf: "/credentials-pdf/Frontera_Obesity_and_MASH.pdf", width: 906, height: 1280 },
   { name: "Diagnostics", slug: "diagnostics", number: "04", image: diagnosticsImage.url, pdf: "/credentials-pdf/Frontera_Diagnostics.pdf", width: 1280, height: 721 },
   { name: "Aesthetics", slug: "aesthetics", number: "05", image: aestheticsImage.url, pdf: "/credentials-pdf/Frontera_Aesthetics.pdf", width: 906, height: 1280 },
 ] as const;
